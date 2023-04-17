@@ -1,8 +1,23 @@
 const ingredients = [
-  'Potatoes',
-  'Mushrooms',
-  'Garlic',
-  'Tomatos',
-  'Herbs',
-  'Condiments',
+  "Potatoes",
+  "Mushrooms",
+  "Garlic",
+  "Tomatos",
+  "Herbs",
+  "Condiments",
+  
 ];
+
+const listRef = document.querySelector("#ingredients");
+
+ const itemList = function(array){
+   array.forEach((li) => {
+     const addLiItem = document.createElement("li");
+     addLiItem.textContent = li;
+     addLiItem.classList = "item";
+     console.log(addLiItem);
+     listRef.append(addLiItem);
+   });
+ }
+
+itemList(ingredients);
