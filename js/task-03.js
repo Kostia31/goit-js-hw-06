@@ -14,17 +14,16 @@ const images = [
 ];
 const listRef = document.querySelector(".gallery");
 
-const cardSet = images.map((item) => {
-  const imgEl = document.createElement("img");
-  imgEl.src = item.url
-  imgEl.alt = item.alt
-  imgEl.width = 320
-  const itemEl = document.createElement("li");
-  itemEl.classList = "item-card"
-  itemEl.appendChild(imgEl);
-  return itemEl;
-});
+const cardSet = images.map(({url, alt}) => {
+  return `
+      <li class="item-card"><img src="${url}" alt="${alt}"></li>
+      `;
+}).join('');
 
-listRef.append(...cardSet);
+console.log(cardSet);
+
+listRef.insertAdjacentHTML("afterbegin", cardSet);
+
+
 
 
