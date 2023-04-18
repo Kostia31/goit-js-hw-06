@@ -13,14 +13,18 @@ const images = [
   },
 ];
 const listRef = document.querySelector(".gallery");
-const cardSet = images.forEach((item) => {
-  const img = document.createElement("img");
-  console.log(item.url);
-  
-  img.classList = 'img-card'
-  img.srcset = item.url;
-  img.alt = item.alt
-  img.width = 320
-  console.log(img);
-  listRef.append(img);
+
+const cardSet = images.map((item) => {
+  const imgEl = document.createElement("img");
+  imgEl.src = item.url
+  imgEl.alt = item.alt
+  imgEl.width = 320
+  const itemEl = document.createElement("li");
+  itemEl.classList = "item-card"
+  itemEl.appendChild(imgEl);
+  return itemEl;
 });
+
+listRef.append(...cardSet);
+
+
