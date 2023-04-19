@@ -14,16 +14,16 @@ const images = [
 ];
 const listRef = document.querySelector(".gallery");
 
-const cardSet = images.map(({url, alt}) => {
-  return `
+function addGalleryElements(images) {
+  const cardSet = images
+    .map(({url, alt}) => {
+      return `
       <li class="item-card"><img src="${url}" alt="${alt}"></li>
       `;
-}).join('');
+    })
+    .join("");
 
-console.log(cardSet);
+  listRef.insertAdjacentHTML("afterbegin", cardSet);
+}
 
-listRef.insertAdjacentHTML("afterbegin", cardSet);
-
-
-
-
+addGalleryElements(images);
