@@ -14,7 +14,7 @@ const images = [
 ];
 const listRef = document.querySelector(".gallery");
 
-function addGalleryElements(images) {
+const addGalleryElements = function (images) {
   const cardSet = images
     .map(({url, alt}) => {
       return `
@@ -24,6 +24,6 @@ function addGalleryElements(images) {
     .join("");
 
   listRef.insertAdjacentHTML("afterbegin", cardSet);
-}
+};
 
 addGalleryElements(images);
