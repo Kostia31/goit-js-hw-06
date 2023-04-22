@@ -15,6 +15,7 @@ createButtonEl.addEventListener("click", (event) => {
   const numbersEl = Number(inputControls.value);
 
   function createBoxes(numbersEl) {
+    const allDivs = [];
     let sizeDiv = 20;
     for (let i = 0; i < numbersEl; i += 1) {
       sizeDiv += 10;
@@ -22,15 +23,14 @@ createButtonEl.addEventListener("click", (event) => {
       div.style.backgroundColor = getRandomHexColor();
       div.style.width = `${sizeDiv}px`;
       div.style.height = `${sizeDiv}px`;
-      parentsBox.append(div);
+      allDivs.push(div);
     }
+    parentsBox.append(...allDivs);
   }
   createBoxes(numbersEl);
 });
 
-destroyButtonEl.addEventListener('click', (event) => {
-  
+destroyButtonEl.addEventListener("click", (event) => {
   location.reload();
   parentsBox.remove(parentsBox.children);
-  console.log(inputControls.value);
-})
+});

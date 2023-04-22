@@ -8,10 +8,14 @@ formRef.addEventListener("submit", (event) => {
   if (!email || !password) {
     alert("Заповніть усі поля!");
   } else {
-    formData.forEach((value, name) => {
-      console.log("name :", name);
-      console.log("value :", value);
-    });
-      formRef.reset(event);
+    const all = []
+    for (const value of formData.values()) {
+      all.push(value);
+    }
+    const resultForm = {}
+    resultForm.email = all[0]
+    resultForm.password = all[1]
+    console.log(resultForm);
+    formRef.reset(event);
   }
 });
